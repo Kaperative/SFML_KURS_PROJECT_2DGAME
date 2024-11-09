@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Classes/Camera/Camera.h"
 #include "../Classes/Bar/Bar.h"
-
+#include "../Classes/Text/TText.h"
 using namespace sf;
 bool IsPersonChoose(int NumPerson, int Arr[3]);
 ///////////////////////////////////////////////////////////////////
@@ -70,7 +70,7 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
     InfoSprite.setScale(1.25, 1.25);
     InfoSprite.setPosition(500, 100);
 
-    std::string InfoText[7] = { "Assasin Gamunkul \n Tarantiez","Hyesos","Gondon","Bezdar","IGgg","Gigi","" };
+   
  
 
     std::string HelpText[6] = { "Take Y for Choose","Take N for UnChoose","Take R for random Choosing" };
@@ -80,6 +80,7 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
         exit(1232333);
     Text FontText(" 1", FontInfo, 25);
 
+    TText TextPerson( 10,30,20, Vector2f(-350,-250),"src/font/Score.ttf", "src/text/Warrior.txt");
 
     int ArrInd[6] = { 0,1,2,3,4,5 };
     while (42)
@@ -105,33 +106,39 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
             {
                 HeroBar.setNumberOfChoose(0);
                 Ind = 0;
+                TextPerson.SetTextFromFile("src/text/Warrior.txt");
             }
 
             if (event.key.code == sf::Keyboard::Num2)
             {
                 HeroBar.setNumberOfChoose(1);
                 Ind = 1;
+                TextPerson.SetTextFromFile("src/text/Heal.txt");
             }
             if (event.key.code == sf::Keyboard::Num3)
             {
                 Ind = 2;
                 HeroBar.setNumberOfChoose(2);
+                TextPerson.SetTextFromFile("src/text/Assasin.txt");
             }
             if (event.key.code == sf::Keyboard::Num4)
             {
                 HeroBar.setNumberOfChoose(3);
                 Ind = 3;
+                TextPerson.SetTextFromFile("src/text/Mage.txt");
             }
             if (event.key.code == sf::Keyboard::Num5)
             {
                 HeroBar.setNumberOfChoose(4);
                 Ind = 4;
+                TextPerson.SetTextFromFile("src/text/SpearMan.txt");
             }
 
             if (event.key.code == sf::Keyboard::Num6)
             {
                 HeroBar.setNumberOfChoose(5);
                 Ind = 5;
+                TextPerson.SetTextFromFile("src/text/Woman.txt");
             }
 
             if (event.key.code == sf::Keyboard::F1)
@@ -185,13 +192,13 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
 			
 		}
 
-		FontText.setFillColor(Color(40, 40, 40, 255));
-		FontText.setPosition(640, 340);
-		FontText.setString(InfoText[Ind]);
-        window.draw(FontText);
+		
+		
+       
 
         ChooseBar.Draw(window, Camera, Person, ArrIndChoose);
         HeroBar.Draw(window, Camera, Person, ArrInd);
+        TextPerson.Draw(window, Camera);
         window.setView(Camera.getCamera());
         window.display();
         
