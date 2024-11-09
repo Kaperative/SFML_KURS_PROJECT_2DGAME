@@ -15,7 +15,7 @@ TText::TText(int FCountElement, int FSize, int FIndent, Vector2f FCoord,std::str
 
      Font.loadFromFile(FFontName);
      TextStr.setFont(Font);
-     TextStr.setCharacterSize(20);
+     TextStr.setCharacterSize(FSize);
 
     
 
