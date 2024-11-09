@@ -1,0 +1,4 @@
+Num0-Num9 - switching between characters
+F1-F3 - switching between your characters
+ENTER - choose person
+Y - end the choosing

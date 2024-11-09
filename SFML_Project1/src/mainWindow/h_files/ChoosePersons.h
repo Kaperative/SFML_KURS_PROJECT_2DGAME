@@ -69,19 +69,14 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
     InfoSprite.setTexture(InfoTexture);//заливаем текстуру спрайтом
     InfoSprite.setScale(1.25, 1.25);
     InfoSprite.setPosition(500, 100);
-
-   
- 
-
+    
+  
     std::string HelpText[6] = { "Take Y for Choose","Take N for UnChoose","Take R for random Choosing" };
    
-    Font FontInfo;
-    if (!FontInfo.loadFromFile("src/font/Score.ttf"))
-        exit(1232333);
-    Text FontText(" 1", FontInfo, 25);
-
+   
     TText TextPerson( 10,30,20, Vector2f(-350,-250),"src/font/Score.ttf", "src/text/Warrior.txt");
-
+    TText TextInfo(10, 30, 20, Vector2f(300, 250), "src/font/Score.ttf", "src/text/InfoChoose.txt");
+    TextInfo.TextColor=Color(55,55,55,255);
     int ArrInd[6] = { 0,1,2,3,4,5 };
     while (42)
     {
@@ -181,24 +176,12 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
         window.draw(BackGroundSprite);
 
         window.draw(InfoSprite);
-       
-		FontText.setFillColor(Color(240, 40, 40, 255));
-		for (int i=0;i<3;i++)
-		{
-			FontText.setPosition(windowWidth-400, 50*(i+1));
-			FontText.setString(HelpText[i]);
-		
-			window.draw(FontText);
-			
-		}
-
-		
-		
-       
+ 
 
         ChooseBar.Draw(window, Camera, Person, ArrIndChoose);
         HeroBar.Draw(window, Camera, Person, ArrInd);
         TextPerson.Draw(window, Camera);
+        TextInfo.Draw(window, Camera);
         window.setView(Camera.getCamera());
         window.display();
         
