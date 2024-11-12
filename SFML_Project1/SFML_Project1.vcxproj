@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\mainWindow\Classes\Character\Characters.cpp" />
     <ClCompile Include="src\mainWindow\Classes\Camera\Camera.cpp" />
     <ClCompile Include="src\mainWindow\Classes\Bar\Bar.cpp" />
     <ClCompile Include="src\mainWindow\main.cpp" />
@@ -155,12 +156,18 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\mainWindow\Classes\Character\Characters.h" />
     <ClInclude Include="src\mainWindow\Classes\Camera\Camera.h" />
     <ClInclude Include="src\mainWindow\Classes\Bar\Bar.h" />
     <ClInclude Include="src\mainWindow\Const\ConstWindow.h" />
-    <ClInclude Include="src\mainWindow\Const\MapWindow.h" />
+    <ClInclude Include="src\mainWindow\Const\ItemsConst.h" />
     <ClInclude Include="src\mainWindow\h_files\ChoosePersons.h" />
     <ClInclude Include="src\mainWindow\Classes\Text\TText.h" />
+    <ClInclude Include="src\mainWindow\h_files\PlayerEvents.h" />
+    <ClInclude Include="src\mainWindow\h_files\IsWillBeTraining.h" />
+    <ClInclude Include="src\mainWindow\Const\RecPerson.h" />
+    <ClInclude Include="src\mainWindow\Locations\Training\Const\TrainingMap.h" />
+    <ClInclude Include="src\mainWindow\Locations\Training\h_files\TrainingLocation.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\SFML\SFML_KURS_KPO\img\BackGround\Choose.jpg" />

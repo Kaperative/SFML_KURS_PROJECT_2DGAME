@@ -1,46 +1,24 @@
 #include <SFML/Graphics.hpp>
 #include "Const/ConstWindow.h"
 #include "h_files/ChoosePersons.h"
-
+#include "h_files/IsWillBeTraining.h"
+#include "Locations/Training/h_files/TrainingLocation.h"
 
 using namespace sf;
 
-
+RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Solo leveling", sf::Style::Fullscreen);
 //////////////////////////////////////////////////////////////////////
 void main()
 {
 
-    
-   
-    RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Solo leveling", sf::Style::Fullscreen);
-
-    int ArrPerson[3];
-    int** PersonRectangle = new int* [7]; // выделение памяти под двумерный массив
-    for (int i = 0; i < 7; i++) {
-        PersonRectangle[i] = new int[2];
-    }
     // Выбор героев для дальнейшей игры
-    if (ChoosePerson(window,PersonRectangle,ArrPerson) == false)
-    {
-        window.close();
-    }
+     if (ChoosePerson(window) == false) { window.close(); exit(0); }
+    int ChooseOfTraining = IsWantTraining(window);
+    if (ChooseOfTraining == -1) { window.close(); }
+    else if (ChooseOfTraining == 0) { if (GameInLocation(window, 0) == -1) { window.close(); } } // Training is true
+    else if (ChooseOfTraining == 1) {  } // training is false
+   
+    
 
-
-    while (window.isOpen())
-    {
-        window.clear();
-
-       
-
-       
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-       
-
-        window.display();
-    }
+    exit(0);
 }
