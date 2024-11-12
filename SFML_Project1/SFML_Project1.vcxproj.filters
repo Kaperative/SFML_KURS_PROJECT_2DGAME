@@ -60,6 +60,12 @@
     <ClInclude Include="src\mainWindow\Classes\Text\TText.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="src\mainWindow\Const\MapForTraining.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mainWindow\h_files\IsWillBeTraining.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\SFML\SFML_KURS_KPO\img\BackGround\Choose.jpg">

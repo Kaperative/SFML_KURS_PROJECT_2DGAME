@@ -17,26 +17,8 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
     
 
    
-    Person[0][0] = 0;
-    Person[0][1] = 0;
-
-    Person[1][0] = 45;
-    Person[1][1] = 0;
-
-    Person[2][0] = 90;
-    Person[2][1] = 0;
-
-    Person[3][0] = 135;
-    Person[3][1] = 0;
-
-    Person[4][0] = 180;
-    Person[4][1] = 0;
-
-    Person[5][0] = 225;
-    Person[5][1] = 0;
-
-    Person[6][0] = 270;
-    Person[6][1] = 0;
+    
+   
 
     Image BackGroundImage;
     BackGroundImage.loadFromFile("src/img/BackGround/Choose.jpg");
@@ -53,30 +35,27 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
     int Ind=0;
     int IndChoose = 0;
     
-    Bar HeroBar(6, 45, 5, Vector2f(-windowWidth/2, -windowHeight/2), 0, "src/font/Score.ttf", 
+    Bar HeroBar(6, 40, 5, Vector2f(-windowWidth/2, -windowHeight/2), 0, "src/font/Score.ttf", 
                 "src/img/Character/Player/ChoosePerson.jpg", 3, std::vector<std::string>{ "1","2","3","4","5","6"});
 
-    Bar ChooseBar(3, 45, 5, Vector2f(+windowWidth / 2-150, -windowHeight / 2), 0, "src/font/Score.ttf",
+    Bar ChooseBar(3, 40, 5, Vector2f(+windowWidth / 2-150, -windowHeight / 2), 0, "src/font/Score.ttf",
         "src/img/Character/Player/ChoosePerson.jpg", 3, std::vector<std::string>{ "F1", "F2", "F3"});
 
 
 
     Image InfoImage;
-    InfoImage.loadFromFile("src/img/BackGround/Info.jpg");//загружаем файл для карты
+    InfoImage.loadFromFile("src/img/BackGround/Info.jpg");
     Texture InfoTexture;//текстура карты
     InfoTexture.loadFromImage(InfoImage);//заряжаем текстуру картинкой
     Sprite InfoSprite;//создаём спрайт для карты
     InfoSprite.setTexture(InfoTexture);//заливаем текстуру спрайтом
     InfoSprite.setScale(1.25, 1.25);
     InfoSprite.setPosition(500, 100);
-    
-  
-    std::string HelpText[6] = { "Take Y for Choose","Take N for UnChoose","Take R for random Choosing" };
    
    
     TText TextPerson( 10,30,20, Vector2f(-350,-250),"src/font/Score.ttf", "src/text/Warrior.txt");
     TText TextInfo(10, 30, 20, Vector2f(300, 250), "src/font/Score.ttf", "src/text/InfoChoose.txt");
-    TextInfo.TextColor=Color(55,55,55,255);
+    TextInfo.TextColor=Color(255,255,255,255);
     int ArrInd[6] = { 0,1,2,3,4,5 };
     while (42)
     {
@@ -86,17 +65,12 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
         sf::Event event;
         while (window.pollEvent(event))
         {
+            
             if (event.type == sf::Event::Closed)
             {
                 return false;
             }
-            if (event.type == sf::Event::MouseWheelScrolled)
-            {
-                if (event.mouseWheelScroll.delta < 0)
-                    Camera.CameraScale((float)1.6);
-                else if (event.mouseWheelScroll.delta > 0)
-                    Camera.CameraScale((float)1/1.6);
-            }
+            if (event.type == sf::Event::KeyPressed) {
             if (event.key.code == sf::Keyboard::Num1)
             {
                 HeroBar.setNumberOfChoose(0);
@@ -160,9 +134,8 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
                     delete[] Person;
                     return true;
                 }
-              
-
             }
+        }
             if (event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::Enter) {
                     if (IsPersonChoose(HeroBar.getNumberOfChoose(), ArrIndChoose)==false)
@@ -178,8 +151,8 @@ bool ChoosePerson(sf::RenderWindow& window,int** Person,int* ArrIndChoose)
         window.draw(InfoSprite);
  
 
-        ChooseBar.Draw(window, Camera, Person, ArrIndChoose);
-        HeroBar.Draw(window, Camera, Person, ArrInd);
+        ChooseBar.Draw(window, Camera, Person, ArrIndChoose,6);
+        HeroBar.Draw(window, Camera, Person, ArrInd,6);
         TextPerson.Draw(window, Camera);
         TextInfo.Draw(window, Camera);
         window.setView(Camera.getCamera());

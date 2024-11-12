@@ -1,0 +1,3 @@
+Press Y -  training
+Press N -      skip
+Press Enter - start

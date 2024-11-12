@@ -18,7 +18,7 @@
 		sf::Text TextBar; // текст 
 		sf::Color BordChooseColor = Color(255, 255, 255, 255); // цвет выбранного элемента
 		sf::Color TextColor = sf::Color::Black; // цвет текста
-
+	
 		~Bar()
 		{
 
@@ -30,7 +30,7 @@
 		Bar(int FCountElement, int FSizeElement, int FIndent, Vector2f FCoord, int FNapr,
 			std::string FFontName, std::string FIconFile, int FScale, const std::vector<std::string>& FTextStart);
 
-		void Draw(RenderWindow& window, TCamera& Camera, int** Arr, int* ArrChooseIND);
+		void Draw(RenderWindow& window, TCamera& Camera, int** Arr, int* ArrChooseIND, int IndBack);
 		void setNumberOfChoose(int Num);
 		int getNumberOfChoose();
 	};

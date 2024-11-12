@@ -158,9 +158,11 @@
     <ClInclude Include="src\mainWindow\Classes\Camera\Camera.h" />
     <ClInclude Include="src\mainWindow\Classes\Bar\Bar.h" />
     <ClInclude Include="src\mainWindow\Const\ConstWindow.h" />
+    <ClInclude Include="src\mainWindow\Const\MapForTraining.h" />
     <ClInclude Include="src\mainWindow\Const\MapWindow.h" />
     <ClInclude Include="src\mainWindow\h_files\ChoosePersons.h" />
     <ClInclude Include="src\mainWindow\Classes\Text\TText.h" />
+    <ClInclude Include="src\mainWindow\h_files\IsWillBeTraining.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\SFML\SFML_KURS_KPO\img\BackGround\Choose.jpg" />
